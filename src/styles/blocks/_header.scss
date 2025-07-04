@@ -1,0 +1,51 @@
+@use "../helpers/" as *;
+
+.header {
+    overflow: visible;
+    &__banner {
+        background-color: var(--color-gray-50);
+        padding-block: rem(20);
+        
+        &-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-block: rem(40) rem(20);
+        row-gap: rem(4);
+    }
+
+    &__progress {
+        display: block;
+        background-color: var(--color-gray-50);
+        padding-block: rem(10);
+        
+        position: sticky;
+        z-index: 100;
+        top:0;
+        // animation-name: scrolling-header;
+        // animation-fill-mode: both;
+        // animation-timeline: scroll();
+        // animation-range: rem(100) rem(200);
+      
+        
+        // @keyframes scrolling-header {
+        //   to {
+        //     box-shadow: 0 0 1rem 0 var(--color-dark-40);  
+      
+        //   }
+        // }
+
+        &-inner {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
