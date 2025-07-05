@@ -28,7 +28,7 @@ export const products = [
   { title: "Fly to Edge of Space", price: 250_000, image: images.edgeOfSpace },
   { title: "Underwater Mansion", price: 90_000_000, image: images.underwaterMansion },
   {
-    title: "Fund the budget of the poorest country (Burundi)",
+    title: "Fund the budget of the poorest country",
     price: 3_000_000_000,
     image: images.burundi,
   },

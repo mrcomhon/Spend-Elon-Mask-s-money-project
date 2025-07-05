@@ -533,6 +533,7 @@ button[aria-label]::before {
   background-color: var(--color-dark-40);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 26.875rem;
   height: 100%;
@@ -602,6 +603,15 @@ button[aria-label]::before {
 }
 .card__purchase-sell {
   background-color: var(--color-light);
+  transition: all 0.3s ease;
+}
+.card__purchase-sell.inactive {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.card__purchase-sell.active {
+  opacity: 1;
+  cursor: pointer;
 }
 .card__purchase-buy {
   background: linear-gradient(180deg, #2ecc71, #1abc9c);
@@ -614,6 +624,15 @@ button[aria-label]::before {
   }
   .card__purchase-sell {
     grid-area: sell;
+    transition: all 0.3s ease;
+  }
+  .card__purchase-sell.inactive {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .card__purchase-sell.active {
+    opacity: 1;
+    cursor: pointer;
   }
   .card__purchase-buy {
     grid-area: buy;

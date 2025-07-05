@@ -30,6 +30,7 @@
     background-color: var(--color-dark-40);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: rem(430);
     height: 100%;
@@ -107,6 +108,16 @@
     &-sell {
       background-color: var(--color-light);
 
+      transition: all 0.3s ease;
+      &.inactive {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    
+      &.active {
+        opacity: 1;
+        cursor: pointer;
+      }
     }
 
     &-buy {
@@ -122,6 +133,16 @@
 
       &-sell {
         grid-area: sell;
+
+        transition: all 0.3s ease;
+        &.inactive {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        &.active {
+          opacity: 1;
+          cursor: pointer;
+        }
       }
 
       &-buy {
