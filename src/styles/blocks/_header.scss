@@ -10,7 +10,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
+        }
+
+        &-title {
+            @include fluid-text(48, 16);
+
+            color: var(--color-light);
         }
     }
 
@@ -20,6 +25,31 @@
         align-items: center;
         padding-block: rem(40) rem(20);
         row-gap: rem(4);
+
+        @include mobile {
+        padding-block: rem(16) rem(10);
+        }
+
+        &-image {
+            width: fluid(465, 250);
+        }
+
+        &-title {
+            @include fluid-text(48, 16);
+
+            color: var(--color-light);
+        }
+
+        &-description {
+            @include fluid-text(28, 14);
+
+            text-align: center;
+            max-width: rem(1000);
+
+            @include tablet {
+                max-width: rem(600);
+            }
+        }
     }
 
     &__progress {
@@ -44,8 +74,19 @@
         // }
 
         &-inner {
-            display: flex;
-            justify-content: space-around;
+            display: block;
+            
+            @include mobile-above {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+
+        &-count,
+        &-percentage {
+            @include fluid-text(48, 16);
+
+            color: var(--color-light);
         }
     }
 }
