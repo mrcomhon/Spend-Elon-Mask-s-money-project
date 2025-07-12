@@ -5,12 +5,15 @@ import { useState } from "react";
 import { products } from "./components/Products";
 
 function App() {
-  const [money, setMoney] = useState<number>(420_000_000_000);
-  const [inventory, setInventory] = useState<{[title:string]: number}>({})
+  const INITIAL_MONEY = 420_000_000_000;
+  const [money, setMoney] = useState<number>(INITIAL_MONEY);
+  const [inventory, setInventory] = useState<{ [title: string]: number }>({})
+  const spent = Math.max(0, INITIAL_MONEY - money);
+  const percentSpent = (spent / INITIAL_MONEY) * 100;
 
   return (
     <div>
-      <Header money={money} />
+      <Header money={money} percentSpent={percentSpent} />
       <div className="card">
         {products.map(
           (
@@ -33,6 +36,7 @@ function App() {
               unique={product.unique || false}
               inventory={inventory}
               setInventory={setInventory}
+              initialMoney={INITIAL_MONEY}
             />
           )
         )}

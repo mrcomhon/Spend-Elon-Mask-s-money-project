@@ -87,13 +87,16 @@
     gap: rem(20);
     width: 100%;
     align-items: center;
-    justify-content: center;
-   
+    
+    @include tablet-above {
 
-    &-input {
-      width: rem(100);
+      justify-content: center;
     }
-
+    
+    &-input {
+      text-align: center;
+    }
+    
     &-sell,
     &-buy {
       border: none;
@@ -101,6 +104,10 @@
       
       @include tablet-above {
         min-width: rem(100);
+      }
+      
+      @include tablet {
+        width: 100%;
       }
 
     }
@@ -123,6 +130,17 @@
     &-buy {
       background: linear-gradient(180deg,#2ecc71,#1abc9c);
       color: var(--color-light);
+
+      transition: all 0.3s ease;
+      &.inactive {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    
+      &.active {
+        opacity: 1;
+        cursor: pointer;
+      }
     }
 
     @include tablet {

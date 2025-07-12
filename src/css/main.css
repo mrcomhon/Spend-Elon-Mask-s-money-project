@@ -587,10 +587,14 @@ button[aria-label]::before {
   gap: 1.25rem;
   width: 100%;
   align-items: center;
-  justify-content: center;
+}
+@media (width > 63.99875rem) {
+  .card__purchase {
+    justify-content: center;
+  }
 }
 .card__purchase-input {
-  width: 6.25rem;
+  text-align: center;
 }
 .card__purchase-sell, .card__purchase-buy {
   border: none;
@@ -599,6 +603,11 @@ button[aria-label]::before {
 @media (width > 63.99875rem) {
   .card__purchase-sell, .card__purchase-buy {
     min-width: 6.25rem;
+  }
+}
+@media (width <= 63.99875rem) {
+  .card__purchase-sell, .card__purchase-buy {
+    width: 100%;
   }
 }
 .card__purchase-sell {
@@ -616,6 +625,15 @@ button[aria-label]::before {
 .card__purchase-buy {
   background: linear-gradient(180deg, #2ecc71, #1abc9c);
   color: var(--color-light);
+  transition: all 0.3s ease;
+}
+.card__purchase-buy.inactive {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.card__purchase-buy.active {
+  opacity: 1;
+  cursor: pointer;
 }
 @media (width <= 63.99875rem) {
   .card__purchase {

@@ -1,6 +1,6 @@
 import burger from "../images/burger.jpg";
 import cocacola from "../images/Сocacola.jpg";
-import iPhone from "../images/AwesomeCard.jpg";
+import iPhone from "../images/iphone.jpg";
 import tesla from "../images/tesla.jpg";
 import rocket from "../images/Rocket.jpg";
 import island from "../images/island.jpg";

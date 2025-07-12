@@ -2,9 +2,10 @@ import Elon from "../images/ElonMask.jpg";
 
 type HeaderProps = {
   money: number;
+  percentSpent: number;
 };
 
-function Header({ money }: HeaderProps) {
+function Header({ money, percentSpent }: HeaderProps) {
   return (
     <>
       <header className="header">
@@ -13,7 +14,6 @@ function Header({ money }: HeaderProps) {
             <a className="header__banner-logo" href="/">
               <h1 className="header__banner-title">Spend $420.000.000.000</h1>
             </a>
-            <select name="" id=""></select>
           </div>
         </div>
         <div className="header__body">
@@ -33,7 +33,7 @@ function Header({ money }: HeaderProps) {
           <p className="header__progress-count">
             Remaining: $ {money.toLocaleString()}{" "}
           </p>
-          <p className="header__progress-percentage">You spent:</p>
+          <p className="header__progress-percentage">You spent: {percentSpent.toFixed(8) }%</p>
         </div>
       </div>
     </>

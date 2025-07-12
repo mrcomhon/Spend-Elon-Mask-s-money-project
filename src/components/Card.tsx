@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Input from './Input';
 import classNames from 'classnames';
 
 type CardProps = {
@@ -10,13 +9,18 @@ type CardProps = {
   setMoney: React.Dispatch<React.SetStateAction<number>>;
   unique: boolean;
   inventory: { [title: string]: number };
-  setInventory: React.Dispatch<React.SetStateAction<{[title:string]: number}>>
+  setInventory: React.Dispatch<React.SetStateAction<{ [title: string]: number }>>
+  initialMoney: number;
 };
+
+
 
 function Card({ title, price, image, money, unique = false, setMoney, }: CardProps) {
   const [isBought, setIsBought] = useState(false);
   const [inventory, setInventory] = useState<{ [title: string]: number }>({});
   const count = inventory[title] || 0;
+  const [input, setInput] = useState<string>("0");
+
 
   const handleBuy = () => {
     if (money >= price) {
@@ -24,6 +28,8 @@ function Card({ title, price, image, money, unique = false, setMoney, }: CardPro
         ...prev,
         [title]: (prev[title] || 0) + 1,
       }))
+
+      setInput((prev) => (parseInt(prev, 10) + 1).toString());
 
       if (unique && isBought) {
         alert("You have already bought it!");
@@ -47,6 +53,8 @@ function Card({ title, price, image, money, unique = false, setMoney, }: CardPro
         [title]: prev[title] - 1,
       }))
       setMoney((prev) => Math.min(prev + price, 420000000000));
+
+      setInput((prev) => (parseInt(prev, 10) - 1).toString())
       
       if (unique && isBought) {
         setIsBought(false)
@@ -74,11 +82,12 @@ function Card({ title, price, image, money, unique = false, setMoney, }: CardPro
           >
             Sell
           </button>
-          <Input />
+          <p className='card__purchase-input h3'>{input }</p>
           <button
-            className={`card__purchase-buy${
-              isBought && unique ? " inactive" : " active"
-            }`}
+          className={classNames("card__purchase-buy", {
+              inactive: money < price,
+              active: count > 0,
+            })}
             onClick={handleBuy}
             disabled={unique && isBought}
           >
